@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="nana_model_0602_1729">
+
+  <!-- <link name = "footprint"/>
+    <joint
+      name="base_joint" type="fixed">
+      <origin
+        xyz="0.0 0.0 0.07" rpy="0 0 0"/>
+      <parent
+        link="footprint" />
+      <child
+        link="base_link" />
+    </joint> -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.19796 0.0027374 0.60139"
+        rpy="0 0 0" />
+      <mass
+        value="20.16" />
+      <inertia
+        ixx="0.14772"
+        ixy="-0.00072308"
+        ixz="-0.0010102"
+        iyy="0.082667"
+        iyz="-0.0017807"
+        izz="0.11972" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="4.5759E-07 -1.8023E-07 0.018599"
+        rpy="0 0 0" />
+      <mass
+        value="2" />
+      <inertia
+        ixx="0.0020255"
+        ixy="8.1072E-08"
+        ixz="9.548E-08"
+        iyy="0.0020255"
+        iyz="-1.1946E-07"
+        izz="0.0026396" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.1939 0.010026"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.7081E-07 -3.7793E-07 -0.018599"
+        rpy="0 0 0" />
+      <mass
+        value="2" />
+      <inertia
+        ixx="0.0020255"
+        ixy="-5.6522E-08"
+        ixz="3.4902E-08"
+        iyy="0.0020254"
+        iyz="1.4896E-07"
+        izz="0.0026396" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.1939 0.010025"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="omni_wheel_left_link">
+    <inertial>
+      <origin
+        xyz="-5.8981E-16 -1.0408E-16 0.0125"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="8.9061E-06"
+        ixy="-9.4163E-10"
+        ixz="3.4522E-20"
+        iyy="8.9049E-06"
+        iyz="-2.1966E-20"
+        izz="1.3455E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/omni_wheel_left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/omni_wheel_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="omni_wheel_left_joint"
+    type="fixed">
+
+
+    <origin
+      xyz="-0.38992 0.1545 -0.057449"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="omni_wheel_left_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="omni_wheel_right_link">
+    <inertial>
+      <origin
+        xyz="1.5786E-16 -1.8041E-16 -0.0125"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="8.9056E-06"
+        ixy="-1.1209E-09"
+        ixz="2.5452E-20"
+        iyy="8.9055E-06"
+        iyz="-3.3641E-20"
+        izz="1.3455E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/omni_wheel_right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.74902 0.74902 0.74902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://nana_model_0602_1729/meshes/omni_wheel_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="omni_wheel_right_joint"
+    type="fixed">
+
+    <origin
+      xyz="-0.38992 -0.1545 -0.057449"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="omni_wheel_right_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+	<!-- lms100 laser1 -->
+	<link name="lms100">
+		<inertial>
+			<mass value="1e-5" />
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://p3dx_description/meshes/lms100.dae" />
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.1" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="lms100_joint" type="fixed">
+		<axis xyz="0 1 0" />
+		<origin xyz="-0.1025 0.0 0.1715" rpy="0 0 0" />  <!--0.12-->
+		<parent link="base_link" />
+		<child link="lms100" />
+	</joint>
+
+<!--Gazebo-->
+  <!-- <gazebo reference="base_link">
+
+    <material>Gazebo/Pink</material>
+  </gazebo> -->
+  <gazebo reference="left_wheel_link">
+    <!-- <mu1>0.9</mu1>
+    <mu2>0.9</mu2> -->
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="right_wheel_link">
+    <!-- <mu1>0.9</mu1>
+    <mu2>0.9</mu2> -->
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="omni_wheel_left_link">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="omni_wheel_right_link">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>1.0</kd>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+	<!-- differential drive -->
+	<gazebo>
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<alwaysOn>true</alwaysOn>
+			<updateRate>100</updateRate>
+			<leftJoint>left_wheel_joint</leftJoint>
+			<rightJoint>right_wheel_joint</rightJoint>
+			<wheelSeparation>0.314</wheelSeparation>
+			<wheelDiameter>0.17</wheelDiameter>
+			<torque>5</torque>
+			<commandTopic>cmd_vel</commandTopic>
+			<odometryTopic>odom</odometryTopic>
+			<odometryFrame>odom</odometryFrame>
+			<robotBaseFrame>base_link</robotBaseFrame>
+			<publishWheelTF>false</publishWheelTF>
+			<publishWheelJointState>true</publishWheelJointState>
+			<wheelAcceleration>0</wheelAcceleration>
+			<wheelTorque>5</wheelTorque>
+			<rosDebugLevel>na</rosDebugLevel>
+			<!-- <publishTf>1</publishTf> -->
+			<legacyMode>false</legacyMode>
+		</plugin>
+	</gazebo>
+
+	<!-- lms100 -->
+	<gazebo reference="lms100">
+		<sensor type="gpu_ray" name="head_hokuyo_sensor">
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>true</visualize>
+			<update_rate>20</update_rate> <!--40-->
+			<ray>
+				<scan>
+					<horizontal>
+						<!--samples>727</samples>
+						<resolution>0.26</resolution>
+						<min_angle>-2.0944</min_angle>
+						<max_angle>2.0944</max_angle-->
+						<samples>210</samples>  <!--735, 720-->
+						<resolution>1</resolution>
+						<!--min_angle>-1.5707963</min_angle>
+						<max_angle>1.5707963</max_angle-->
+						<!-- <min_angle>-1.3562</min_angle>
+						<max_angle>1.3562</max_angle> -->
+						<min_angle>-1.046</min_angle> 
+						<max_angle>1.046</max_angle>
+						<!-- <min_angle>-0.5236</min_angle>
+						<max_angle>0.5236</max_angle> -->
+						<!--min_angle>-3.14159</min_angle>
+						<max_angle>3.14159</max_angle-->
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.2</min>
+					<max>10.0</max>
+					<resolution>0.1</resolution>
+				</range>
+				<noise>
+					<type>gaussian</type>
+					<!-- Noise parameters based on published spec for Hokuyo laser achieving 
+						"+-30mm" accuracy at range < 10m. A mean of 0.0m and stddev of 0.01m will 
+						put 99.7% of samples within 0.03m of the true reading. -->
+					<mean>0.0</mean>
+					<stddev>0.00001</stddev>
+				</noise>
+			</ray>
+			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+				<topicName>laser/scan</topicName>
+				<!--frameName>odom</frameName-->
+				<frameName>lms100</frameName>
+			</plugin>
+		</sensor>
+	</gazebo>
+
+</robot>
