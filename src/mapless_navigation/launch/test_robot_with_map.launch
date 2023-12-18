@@ -1,0 +1,83 @@
+<launch>
+	<arg name="paused" default="false" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+    <arg name="world" default="p3dx" />
+    <arg name="set_base_frame" default="base_link"/>
+    <arg name="set_odom_frame" default="odom"/>
+    <arg name="set_map_frame"  default="odom"/>
+    <arg name="map_file" default="$(find mapless_navigation)/maps/maze_map.yaml"/>
+    <arg name="open_rviz" default="true"/>
+    <arg name="move_forward_only" default="false"/>
+
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+    <!-- AMCL -->
+    <include file="$(find robot_kist)/navigation/amcl.launch"/>
+    <!--URDF robot-->
+    <!--param name="robot_description" textfile="$(find myrobot)/urdf/mobile_robot_2.urdf"/-->
+    <!-- <param name="robot_description"
+            command="$(find xacro)/xacro -inorder '$(find p3dx_description)/urdf/pioneer3dx_Manh.xacro'" /> -->
+    <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/>
+
+    <!-- <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/> -->
+
+    <arg name="x_pos" default="0.0"/>
+    <arg name="y_pos" default="0.0"/>
+    <arg name="z_pos" default="0.0"/>
+    
+    <!--environment-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find myrobot)/worlds/12obstacles_wall.world"/>  -->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/StR_v2.world"/-->   
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_env2023.world"/>   -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/crowded_obstacle_env.world"/> -->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/T_dynamic_env.world"/-->
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_human01_env.world"/-->
+        <!-- <arg name="world_name" value="$(find myrobot)/worlds/PPO_env.world"/>   -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_ICM.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/maze_test.world"/>  -->
+        <arg name="world_name" value="$(find mapless_navigation)/worlds/U_shape.world"/>
+
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/> -->
+
+        <!--Testing_env-->
+        <!-- <arg name="world_name" value="$(find myrobot)/worlds/room_test.world"/>  -->
+
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/dynamic_world/dynamic03.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/TestingForComplex_env03.world"/> -->
+
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/updated_test_env02.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env.world"/> -->
+        <!-- <arg name="world_name" value="$(find myrobot)/worlds/complex_env02.world"/> -->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/test_env01.world"/-->
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="headless" value="$(arg headless)" />
+    </include>
+    
+    <!--Gazebo-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model manh -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>           
+ 
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        
+      <!-- Gmapping -->
+  <!-- <node pkg="gmapping" type="slam_gmapping" name="robot_kist_slam_gmapping" output="screen">
+    <param name="base_frame" value="$(arg set_base_frame)"/>
+    <param name="odom_frame" value="$(arg set_odom_frame)"/>
+    <param name="map_frame"  value="$(arg set_map_frame)"/>
+    <rosparam command="load" file="$(find robot_kist)/SLAM/gmapping_params.yaml" />
+  </node> -->
+    <!-- AMCL -->
+  <!-- <include file="$(find robot_kist)/navigation/amcl.launch"/> -->
+    <!-- -Y $(arg yaw) --> 
+</launch>
+
+
+
+

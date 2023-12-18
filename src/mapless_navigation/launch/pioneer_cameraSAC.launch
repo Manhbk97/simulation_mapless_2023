@@ -1,0 +1,48 @@
+<launch>
+    <!--URDF model robot include camera -->
+    <!--param name="robot_description" textfile="$(find mapless_navigation)/urdf/mobile_robot/mobile_robot_dqn.urdf"/-->
+    <param name="robot_description"
+            command="$(find xacro)/xacro --inorder '$(find p3dx_description)/urdf/pioneer3dx.xacro'" />
+    <!--URDF model robot include camera -->
+    <arg name="x_pos1" default="0"/>
+    <arg name="y_pos1" default="0"/>
+    <arg name="z_pos1" default="0.0"/>
+    
+    <!--launch Gazebo-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/crowded_obstacle_env.world"/--> 
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/testing_env_2_2.world"/--> 
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/crowded_obstacle_env.world"/-->
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/sac_moving_obstacles.world"/-->   
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_dynamic_env.world" /-->
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/StR_v2.world"--> 
+        <!--arg name="world_name" value="$(find myrobot)/worlds/test_env01.world"/-->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/test_env02.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/updated_test_env02.world"/> -->
+        <arg name="world_name" value="$(find myrobot)/worlds/PPO_env.world"/>  
+        
+        <!--Testing_env-->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/updated_test_env02.world"/> -->
+
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/dynamic_world/dynamic03.world"/-->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/TestingForComplex_env03.world"/> -->
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/room01.world"/-->
+    </include>
+    
+    <!---->
+    <!--node pkg="mapless_navigation"  type="moving_obstacle.py" name="moving_obstacles" output="screen" /-->
+    
+    <!--Run a python script to the send a service call to gazebo_ros to spawn a URDF robot-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobile_robot_dqn_2 -x $(arg x_pos1) -y $(arg y_pos1) -z $(arg z_pos1)"/>           
+
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+         
+    
+    
+    
+</launch>
+
+
+
+

@@ -1,0 +1,61 @@
+<launch>
+	<arg name="paused" default="false" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+    <arg name="world" default="p3dx" />
+    <!--URDF robot-->
+    <!--param name="robot_description" textfile="$(find amr_robots_description)/urdf/pioneer3dx.urdf.xacro"/-->
+    <!--param name="robot_description" command="xacro $(find p3dx_description)/urdf/pioneer_update.xacro" /-->
+    <!--param name="robot_description" command="xacro $(find p3dx_description)/urdf/pioneer3dx.xacro" /-->
+    <param name="robot_description" 
+        command="xacro $(find p3dx_description)/urdf/pioneer3dx_Manh.xacro" />
+    <arg name="x_pos" default="0.0"/>
+    <arg name="y_pos" default="0.0"/>
+    <arg name="z_pos" default="0.0"/>
+    
+    <!--environment-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--arg name="world_name" value="$(find myrobot)/worlds/12obstacles_wall.world"/--> 
+        <!--arg name="world_name" value="$(find myrobot)/worlds/StR_v2.world"/-->   
+        <!--arg name="world_name" value="$(find myrobot)/worlds/complex_env04.world"/-->  
+        <!--arg name="world_name" value="$(find myrobot)/worlds/crowded_obstacle_env.world"/-->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/T_dynamic_env.world"/-->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/T_dynamic_human_object.world"/-->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/PPO_env.world"/-->  
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_object_static_env.world"/--> 
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_human01_env.world"/-->
+        <!--Testing_env-->
+        <arg name="world_name" value="$(find myrobot)/worlds/test_env02.world"/>
+        <!--arg name="world_name" value="$(find mapless_navigation)/worlds/room.world"/-->
+        <!--arg name="world_name" value="$(find myrobot)/worlds/test_env01.world"/-->
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="headless" value="$(arg headless)" />
+    </include>
+    
+    <!--Gazebo-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+          args="-param robot_description -urdf -model pioneer3dx -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>           
+ 
+        <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+        </node>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /-->
+    <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="30.0" />
+    </node>        
+    <!-- -Y $(arg yaw) -->
+         
+    <!--algorithm
+   <node pkg="myrobot" type="SAC_2act_new.py" name="mobile_robot_sac" output="screen"/> -->
+    
+    
+    
+</launch>
+
+
+
+
