@@ -14,7 +14,7 @@
             command="$(find xacro)/xacro --inorder '$(find p3dx_description)/urdf/pioneer3dx_Manh.xacro'" />
     <arg name="x_pos" default="0.0"/>
     <arg name="y_pos" default="0.0"/>
-    <arg name="z_pos" default="0.0"/>
+    <arg name="z_pos" default="0.1"/>
     <!-- <arg name="x_pos" default="-8.0"/>
     <arg name="y_pos" default="-2.0"/>
     <arg name="z_pos" default="0.0"/> -->
@@ -30,7 +30,7 @@
         <!--arg name="world_name" value="$(find myrobot)/worlds/T_dynamic_env.world"/-->
         <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_human01_env.world"/-->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/PPO_env.world"/>   -->
-        <arg name="world_name" value="$(find mapless_navigation)/worlds/ICM_env.world"/>
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/ICM_env.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/indoor_nan_robot_static_env.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_ICM.world"/> -->
@@ -38,16 +38,21 @@
 
 
         <!--Testing_env-->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/square_ver2.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/clutter_env023.world"/> -->
+
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_env_test.world"/> -->
-        <!-- <arg name="world_name" value="$(find myrobot)/worlds/room_test.world"/>  -->
-        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/maze_test.world"/>  -->
+        <arg name="world_name" value="$(find mapless_navigation)/worlds/two_room.world"/> 
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_clutter022.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/corridor.world"/>  -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/optima_env.world"/>  -->
 
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/dynamic_world/dynamic03.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/TestingForComplex_env03.world"/> -->
 
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/updated_test_env02.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env.world"/> -->
-        <!-- <arg name="world_name" value="$(find myrobot)/worlds/complex_env02.world"/> -->
+
         <!-- <arg name="world_name" value="$(find myrobot)/worlds/test_env02.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/test_env03.world"/> -->
 		<arg name="debug" value="$(arg debug)" />

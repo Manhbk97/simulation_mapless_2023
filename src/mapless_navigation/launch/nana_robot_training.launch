@@ -31,10 +31,11 @@
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/clutter_env022.world"/> -->
 
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/clutter_env023.world"/> -->
-        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_clutter03.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/corridor.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/square_ver2.world"/> -->
 
-        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/> -->
-        <arg name="world_name" value="$(find mapless_navigation)/worlds/indoor_nana_complex_env.world"/>  
+        <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/>
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/indoor_nana_complex_env.world"/>   -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/maze_test.world"/>  -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/indoor_nan_robot_static_env.world"/> -->
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/human_complex_env04.world"/> -->
@@ -51,6 +52,8 @@
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/TestingForComplex_env03.world"/> -->
 
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/updated_test_env02.world"/> -->
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/test_env02.world"/> -->
+
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env.world"/> -->
         <!-- <arg name="world_name" value="$(find myrobot)/worlds/complex_env02.world"/> -->
         <!--arg name="world_name" value="$(find myrobot)/worlds/test_env01.world"/-->

@@ -8,7 +8,7 @@
     <arg name="set_base_frame" default="base_link"/>
     <arg name="set_odom_frame" default="odom"/>
     <arg name="set_map_frame"  default="odom"/>
-    <arg name="map_file" default="$(find mapless_navigation)/maps/maze_map.yaml"/>
+    <arg name="map_file" default="$(find mapless_navigation)/maps/ICM_map.yaml"/>
     <arg name="open_rviz" default="true"/>
     <arg name="move_forward_only" default="false"/>
 
@@ -18,15 +18,15 @@
     <include file="$(find robot_kist)/navigation/amcl.launch"/>
     <!--URDF robot-->
     <!--param name="robot_description" textfile="$(find myrobot)/urdf/mobile_robot_2.urdf"/-->
-    <!-- <param name="robot_description"
-            command="$(find xacro)/xacro -inorder '$(find p3dx_description)/urdf/pioneer3dx_Manh.xacro'" /> -->
-    <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/>
+    <param name="robot_description"
+            command="$(find xacro)/xacro --inorder '$(find p3dx_description)/urdf/pioneer3dx_Manh.xacro'" /> 
+    <!-- <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/> -->
 
     <!-- <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/> -->
 
     <arg name="x_pos" default="0.0"/>
     <arg name="y_pos" default="0.0"/>
-    <arg name="z_pos" default="0.0"/>
+    <arg name="z_pos" default="0.1"/>
     
     <!--environment-->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -37,9 +37,9 @@
         <!--arg name="world_name" value="$(find myrobot)/worlds/T_dynamic_env.world"/-->
         <!--arg name="world_name" value="$(find mapless_navigation)/worlds/T_human01_env.world"/-->
         <!-- <arg name="world_name" value="$(find myrobot)/worlds/PPO_env.world"/>   -->
-        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_ICM.world"/> -->
+        <arg name="world_name" value="$(find mapless_navigation)/worlds/complex_ICM.world"/>
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/maze_test.world"/>  -->
-        <arg name="world_name" value="$(find mapless_navigation)/worlds/U_shape.world"/>
+        <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/U_shape.world"/> -->
 
         <!-- <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/> -->
 

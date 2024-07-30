@@ -1,0 +1,44 @@
+<launch>
+	<arg name="paused" default="false" />
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="debug" default="false" />
+    <arg name="world" default="p3dx" />
+    <!-- <arg name="set_base_frame" default="base_link"/>
+    <arg name="set_odom_frame" default="odom"/>
+    <arg name="set_map_frame"  default="map"/> -->
+    <!--URDF robot-->
+    <param name="robot_description" textfile="$(find nana_model_0602_1729)/urdf/nana_model_color.urdf"/>
+    <!-- <param name="robot_description" -->
+            <!-- command="$(find xacro)/xacro inorder '$(find nana_model_0602_1729)/urdf/nana_model_color.urdf'" /> -->
+
+    <arg name="x_pos" default="0.0"/>
+    <arg name="y_pos" default="0.0"/>
+    <arg name="z_pos" default="0.07"/>
+    
+    <!--environment-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
+
+        <arg name="world_name" value="$(find mapless_navigation)/worlds/distributional_static_env01.world"/>
+
+		<arg name="debug" value="$(arg debug)" />
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="paused" value="$(arg paused)" />
+		<arg name="use_sim_time" value="$(arg use_sim_time)" />
+		<arg name="headless" value="$(arg headless)" />
+    </include>
+    
+    <!--Gazebo-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model nana_model_0602_1729 -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>           
+ 
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        
+
+</launch>
+
+
+
+
